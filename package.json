@@ -1,0 +1,36 @@
+{
+  "name": "sls-typescript-starter",
+  "version": "1.0.0",
+  "description": "Lightweight starter template for using Serverless with Typescript",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joshbedo/sls-typescript-starter.git"
+  },
+  "author": "Josh Bedo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joshbedo/sls-typescript-starter/issues"
+  },
+  "homepage": "https://github.com/joshbedo/sls-typescript-starter#readme",
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.81",
+    "@types/http-errors": "^1.8.1",
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.1.1",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-env": "^1.6.0",
+    "serverless-bundle": "3.2.1",
+    "serverless-pseudo-parameters": "^2.5.0",
+    "webpack": "^4.35.2"
+  },
+  "dependencies": {
+    "@middy/core": "^2.4.3",
+    "@middy/http-error-handler": "^2.4.3",
+    "@middy/http-event-normalizer": "^2.4.3",
+    "@middy/http-json-body-parser": "^2.4.3",
+    "aws-sdk": "^2.959.0",
+    "http-errors": "^1.8.0",
+    "uuid": "^8.3.2"
+  }
+}

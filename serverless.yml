@@ -1,0 +1,43 @@
+service:
+  name: sls-typescript-starter
+
+plugins:
+  - serverless-bundle
+  - serverless-pseudo-parameters
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  memorySize: 256
+  stage: ${opt:stage, 'dev'}
+  environment:
+    EXAMPLE_TABLE_NAME: ${self:custom.ExampleTable.name}
+  region: us-east-2
+  iamRoleStatements:
+    - ${file(iam/ExampleTableIAM.yml):ExampleTableIAM}
+
+resources:
+  Resources:
+    ExampleTable: ${file(resources/ExampleTable.yml):ExampleTable} 
+  
+  
+functions:
+  hello:
+    handler: src/handlers/hello.handler
+    events:
+      - http:
+          method: GET
+          path: /hello
+  error:
+    handler: src/handlers/error.handler
+    events:
+      - http:
+          method: GET
+          path: /error
+
+custom:
+  ExampleTable:
+    name: !Ref ExampleTable
+    arn: !GetAtt ExampleTable.Arn
+  bundle:
+    linting: false
